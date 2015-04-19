@@ -38,6 +38,14 @@ Then run:
 
         npm run test_write
 
+
+#### Versbose output
+
+The `--verbose` flag will show more details of the tests being run. Pass this to the testrunner using npm's `--` argument:
+
+        npm run test_write -- --verbose
+
+
 ### Unit Tests
 
 There are some tests set up, which use PHPUnit; these can be found in the
