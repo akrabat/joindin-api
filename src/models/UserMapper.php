@@ -603,4 +603,20 @@ class UserMapper extends ApiMapper
 
         return false;
     }
+
+    public function userDataRequired($username)
+    {
+        $user_id = $this->getUserIdFromUsername($username, true);
+        if (!$user_id) {
+            return [];
+        }
+
+        $user = $this->getUsers(1, 0, 'user.ID = ' . (int)$user_id, null)[0];
+
+        $result = [];
+        if (empty(trim($user['email']))) {
+            $result[] = 'email';
+        }
+        return $result;
+    }
 }

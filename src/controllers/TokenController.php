@@ -55,7 +55,10 @@ class TokenController extends ApiController
                 $clientId, $username, $password);
     
             if ($result) {
-                return array('access_token' => $result['access_token'], 'user_uri' => $result['user_uri']);
+                $result = array('access_token' => $result['access_token'], 'user_uri' => $result['user_uri']);
+                $user_mapper = new UserMapper($db, $request);
+                $result['user_data_required'] = $user_mapper->userDataRequired($username);
+                return $result;
             }
 
             throw new Exception("Signin failed", 403);
