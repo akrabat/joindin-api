@@ -5,7 +5,7 @@ class EventMapperTest extends PHPUnit_Framework_TestCase
     public function testCannotCreateIfEndDateIsBeforeStartDate()
     {
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage("Start Date must be before End Date");
+        $this->expectExceptionMessage("Start date must be before end date");
 
         $pdo = $this->getPDOMock();
 

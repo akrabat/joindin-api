@@ -779,7 +779,7 @@ class EventMapper extends ApiMapper
         }
 
         if (strtotime($event['start_date']) > strtotime($event['end_date'])) {
-            throw new Exception("Start Date must be before End Date");
+            throw new Exception("Start date must be before end date");
         }
 
         $sql = "insert into events set ";
