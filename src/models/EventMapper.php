@@ -778,7 +778,7 @@ class EventMapper extends ApiMapper
             throw new Exception("Missing mandatory fields");
         }
 
-        if (strtotime($event['start_date']) > strtotime($event['end_date'])) {
+        if ($event['start_date'] > $event['end_date']) {
             throw new Exception("Start date must be before end date");
         }
 
